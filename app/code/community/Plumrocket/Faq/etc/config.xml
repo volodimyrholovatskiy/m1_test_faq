@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+  <modules>
+    <Plumrocket_Faq>
+      <version>1.0.0</version>
+    </Plumrocket_Faq>
+  </modules>
+  <frontend>
+    <routers>
+      <faq>
+        <use>standard</use>
+        <args>
+          <module>Plumrocket_Faq</module>
+          <frontName>faq</frontName>
+        </args>
+      </faq>
+    </routers>
+  </frontend>
+</config>
