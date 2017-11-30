@@ -15,5 +15,24 @@
         </args>
       </faq>
     </routers>
+    <layout>
+      <updates>
+        <faq>
+          <file>faq.xml</file>
+        </faq>
+      </updates>
+    </layout>
   </frontend>
+  <global>
+    <helpers>
+      <faq>
+        <class>Plumrocket_Faq_Helper</class>
+      </faq>
+    </helpers>
+    <blocks>
+      <faq>
+        <class>Plumrocket_Faq_Block</class>
+      </faq>
+    </blocks>
+  </global>
 </config>
