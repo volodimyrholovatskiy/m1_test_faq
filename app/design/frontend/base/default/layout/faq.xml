@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <layout version="0.1.0">
 
+  <default>
+      <reference name="footer_links">
+          <action method="addLink" translate="label title"><label>FAQ</label><url>faq</url><title>FAQ</title><prepare>true</prepare></action>
+      </reference>
+  </default>
   <faq_index_index>
     <reference name="root">
         <action method="setTemplate">
