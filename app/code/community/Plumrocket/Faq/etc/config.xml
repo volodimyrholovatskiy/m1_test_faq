@@ -23,7 +23,39 @@
       </updates>
     </layout>
   </frontend>
+  <admin>
+    <routers>
+      <adminhtml>
+        <args>
+          <modules>
+            <faq before="Mage_Adminhtml">Plumrocket_Faq_Adminhtml</faq>
+          </modules>
+        </args>
+      </adminhtml>
+    </routers>
+  </admin>
   <global>
+    <models>
+      <faq>
+        <class>Plumrocket_Faq_Model</class>
+        <resourceModel>faq_resource</resourceModel>
+      </faq>
+      <faq_resource>
+        <class>Plumrocket_Faq_Model_Resource</class>
+        <entities>
+          <block>
+            <table>plumrocket_faq</table>
+          </block>
+        </entities>
+      </faq_resource>
+    </models>
+    <resources>
+      <faq_setup>
+        <setup>
+          <module>Plumrocket_Faq</module>
+        </setup>
+      </faq_setup>
+    </resources>
     <helpers>
       <faq>
         <class>Plumrocket_Faq_Helper</class>

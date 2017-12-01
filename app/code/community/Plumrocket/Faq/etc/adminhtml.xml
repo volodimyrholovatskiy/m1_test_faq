@@ -11,7 +11,7 @@
           <children>
             <faq>
               <title>Manage FAQ</title>
-              <action>adminhtml/manage_faq</action>
+              <action>adminhtml/faqbackend</action>
             </faq>
           </children>
         </faq>
