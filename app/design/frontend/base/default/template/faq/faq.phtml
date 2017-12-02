@@ -1,4 +1,18 @@
 
+
 <div id="faq-list">
-  <h1>FAQ</h1>
+  <div class="page-title">
+    <h1>Frequently Asked Questions</h1>
+  </div>
+  <?php if(!empty($this->getFaqlist())): ?>
+  <div class="std">
+    <ul class="disc">
+      <?php foreach($this->getFaqlist() as $faq): ?>
+        <li><h4><a href="#"><?php echo $faq['title']; ?></a></h4></li>
+      <?php endforeach; ?>
+    </ul>
+  </div>
+  <?php else: ?>
+    <p>There are no  available questions.</p>
+  <?php endif; ?>
 </div>

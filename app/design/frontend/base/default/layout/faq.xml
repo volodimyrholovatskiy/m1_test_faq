@@ -13,7 +13,7 @@
         </action>
     </reference>
     <reference name="content">
-        <block type="core/template" name="faqlist" template="faq/faq.phtml"/>
+        <block type="faq/faq" name="faqlist" template="faq/faq.phtml"/>
     </reference>
   </faq_index_index>
 </layout>
