@@ -6,6 +6,9 @@
           <action method="addLink" translate="label title"><label>FAQ</label><url>faq</url><title>FAQ</title><prepare>true</prepare></action>
       </reference>
   </default>
+
+  <!-- FAQs list -->
+
   <faq_index_index>
     <reference name="root">
         <action method="setTemplate">
@@ -16,4 +19,17 @@
         <block type="faq/faq" name="faqlist" template="faq/faq.phtml"/>
     </reference>
   </faq_index_index>
+
+  <!-- FAQ view -->
+
+  <faq_index_view>
+    <reference name="root">
+        <action method="setTemplate">
+          <template>page/2columns-right.phtml</template>
+        </action>
+    </reference>
+    <reference name="content">
+        <block type="faq/faq" name="faqview" template="faq/view_faq.phtml"/>
+    </reference>
+  </faq_index_view>
 </layout>

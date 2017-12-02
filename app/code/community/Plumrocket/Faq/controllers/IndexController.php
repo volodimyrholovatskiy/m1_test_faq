@@ -19,4 +19,10 @@ class Plumrocket_Faq_IndexController extends Mage_Core_Controller_Front_Action
 		    ));
         $this->renderLayout();
     }
+
+    public function viewAction()
+    {
+        $this->loadLayout();
+        $this->renderLayout();
+    }
 }

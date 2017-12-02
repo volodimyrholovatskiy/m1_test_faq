@@ -1,0 +1,12 @@
+<div id="single-faq">
+  <?php if($this->getSingleFaq()): ?>
+    <div class="page-title">
+      <h1><?php echo $this->getSingleFaq()->getTitle(); ?></h1>
+    </div>
+    <div class="std">
+      <p><?php echo $this->getSingleFaq()->getContent(); ?></p>
+    </div>
+  <?php else: ?>
+    <p>Sorry... Question not found.</p>
+  <?php endif; ?>
+</div>
