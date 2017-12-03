@@ -20,8 +20,12 @@ class Plumrocket_Faq_Adminhtml_FaqbackendController extends Mage_Adminhtml_Contr
 
     public function editAction()
     {
+        $id = $this->getRequest()->getParam('faq_id');
+        Mage::register('faq_block',Mage::getModel('faq/block')->load($id));
+        
         $this->loadLayout()
-             ->_setActiveMenu('plumrocket');
+             ->_setActiveMenu('plumrocket')
+             ->_addContent($this->getLayout()->createBlock("faq/adminhtml_faq_edit"));
         $this->renderLayout();
     }
 
