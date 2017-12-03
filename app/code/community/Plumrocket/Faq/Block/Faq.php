@@ -19,10 +19,7 @@ class Plumrocket_Faq_Block_Faq extends Mage_Core_Block_Template
 
         $faq = $collection->getFirstItem();
 
-        if ($faq->getId()) {
-            return $faq;
-        } else {
-            return false;
-        }
+        return $faq->getId() ? $faq : false;
+
     }
 }

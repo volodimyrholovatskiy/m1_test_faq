@@ -1,13 +1,15 @@
-
+<?php
+$faqlist = $this->getFaqlist();
+?>
 
 <div id="faq-list">
   <div class="page-title">
     <h1>Frequently Asked Questions</h1>
   </div>
-  <?php if(!empty($this->getFaqlist())): ?>
+  <?php if(!empty($faqlist)): ?>
   <div class="std">
     <ul class="disc">
-      <?php foreach($this->getFaqlist() as $faq): ?>
+      <?php foreach($faqlist as $faq): ?>
         <li><h4><a href="index/view/faq_id/<?php echo $faq['faq_id']; ?>"><?php echo $faq['title']; ?></a></h4></li>
       <?php endforeach; ?>
     </ul>
