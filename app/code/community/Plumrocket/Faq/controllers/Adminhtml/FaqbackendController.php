@@ -21,8 +21,19 @@ class Plumrocket_Faq_Adminhtml_FaqbackendController extends Mage_Adminhtml_Contr
     public function editAction()
     {
         $id = $this->getRequest()->getParam('faq_id');
+
+        $model = Mage::getModel('faq/block')->load($id);
+
+        if ($id) {
+            if (! $model->getId() ) {
+                Mage::getSingleton('adminhtml/session')->addError(Mage::helper('faq')->__('This faq no longer exists.'));
+                $this->_redirect('*/*/');
+                return;
+            }
+        }
+
         Mage::register('faq_block',Mage::getModel('faq/block')->load($id));
-        
+
         $this->loadLayout()
              ->_setActiveMenu('plumrocket')
              ->_addContent($this->getLayout()->createBlock("faq/adminhtml_faq_edit"));
@@ -32,5 +43,32 @@ class Plumrocket_Faq_Adminhtml_FaqbackendController extends Mage_Adminhtml_Contr
     public function newAction()
     {
         $this->_forward('edit');
+    }
+
+    public function deleteAction()
+    {
+        if ($id = $this->getRequest()->getParam('faq_id')) {
+            try {
+                $model = Mage::getModel('faq/block');
+                $model->load($id);
+                $title = $model->getTitle();
+                $model->delete();
+
+                Mage::getSingleton('adminhtml/session')->addSuccess('Faq was deleted successfully!');
+
+                $this->_redirect('*/*/');
+                return;
+            } catch (Exception $e) {
+                Mage::getSingleton('adminhtml/session')->addError($e->getMessage());
+
+                $this->_redirect('*/*/edit', array('faq_id' => $id));
+                return;
+            }
+
+        }
+
+        Mage::getSingleton('adminhtml/session')->addError(Mage::helper('faq')->__('Unable to find a faq to delete.'));
+
+        $this->_redirect('*/*/');
     }
 }
