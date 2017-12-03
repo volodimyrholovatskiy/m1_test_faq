@@ -17,4 +17,16 @@ class Plumrocket_Faq_Adminhtml_FaqbackendController extends Mage_Adminhtml_Contr
 
 	      $this->renderLayout();
     }
+
+    public function editAction()
+    {
+        $this->loadLayout()
+             ->_setActiveMenu('plumrocket');
+        $this->renderLayout();
+    }
+
+    public function newAction()
+    {
+        $this->_forward('edit');
+    }
 }

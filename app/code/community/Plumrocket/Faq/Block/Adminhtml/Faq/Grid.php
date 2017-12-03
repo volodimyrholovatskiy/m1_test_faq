@@ -37,4 +37,9 @@ class Plumrocket_Faq_Block_Adminhtml_Faq_Grid extends Mage_Adminhtml_Block_Widge
 
         return parent::_prepareColumns();
     }
+
+    public function getRowUrl($row)
+    {
+        return $this->getUrl('*/*/edit', array('faq_id' => $row->getId()));
+    }
 }
