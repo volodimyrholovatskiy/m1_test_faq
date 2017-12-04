@@ -31,7 +31,12 @@ class Plumrocket_Faq_IndexController extends Mage_Core_Controller_Front_Action
 
     public function viewAction()
     {
+        $id = $this->getRequest()->getParam('faq_id');
+
+        $model = Mage::getModel('faq/block')->load($id);
+
         $this->loadLayout();
+        $this->getLayout()->getBlock("head")->setTitle($model->getId() ? $model->getTitle() : $this->__('Question not found'));
         $this->renderLayout();
     }
 }
