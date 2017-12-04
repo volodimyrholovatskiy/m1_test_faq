@@ -42,7 +42,7 @@
                 <children>
                   <faq translate="title" module="faq">
                     <title>FAQ</title>
-                    <sort_order>102</sort_order>
+                    <sort_order>10</sort_order>
                   </faq>
                 </children>
               </config>

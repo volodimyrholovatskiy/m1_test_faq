@@ -2,6 +2,15 @@
 
 class Plumrocket_Faq_IndexController extends Mage_Core_Controller_Front_Action
 {
+
+    public function preDispatch()
+    {
+        parent::preDispatch();
+
+        if( !Mage::getStoreConfigFlag('faq/general/enabled') ) {
+            $this->norouteAction();
+        }
+    }
     public function indexAction()
     {
         $this->loadLayout();

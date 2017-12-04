@@ -16,7 +16,7 @@
     		<show_in_website>1</show_in_website>
     		<show_in_store>1</show_in_store>
         <groups>
-          <general>
+          <general translate="label" module="faq">
             <label>General</label>
             <expanded>1</expanded>
             <sort_order>1</sort_order>
@@ -25,15 +25,15 @@
             <show_in_website>1</show_in_website>
             <show_in_store>1</show_in_store>
             <fields>
-              <enable translate="label">
-                <label>Enable Extension</label>
+              <enabled translate="label" module="faq">
+                <label>Enable FAQ</label>
                 <frontend_type>select</frontend_type>
                 <source_model>adminhtml/system_config_source_yesno</source_model>
-                <sort_order>2</sort_order>
+                <sort_order>1</sort_order>
                 <show_in_default>1</show_in_default>
                 <show_in_website>1</show_in_website>
                 <show_in_store>1</show_in_store>
-              </enable>
+              </enabled>
             </fields>
           </general>
         </groups>

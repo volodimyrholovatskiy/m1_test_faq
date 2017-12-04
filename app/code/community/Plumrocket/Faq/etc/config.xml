@@ -67,4 +67,12 @@
       </faq>
     </blocks>
   </global>
+  <defalut>
+    <faq>
+      <general>
+        <enabled>1</enabled>
+        <block_count>10</block_count>
+      </general>
+    </faq>
+  </defalut>
 </config>
