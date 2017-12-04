@@ -48,6 +48,7 @@ class Plumrocket_Faq_Block_Adminhtml_Faq_Edit_Form extends Mage_Adminhtml_Block_
             'name' => 'content',
             'label' => Mage::helper('faq')->__('Content'),
             'title' => Mage::helper('faq')->__('Content'),
+            'style'     => 'height:36em',
             'config'    => Mage::getSingleton('cms/wysiwyg_config')->getConfig(),
             'required' => true,
         ));
