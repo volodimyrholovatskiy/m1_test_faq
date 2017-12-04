@@ -35,7 +35,11 @@ class Plumrocket_Faq_Adminhtml_FaqbackendController extends Mage_Adminhtml_Contr
         Mage::register('faq_block',Mage::getModel('faq/block')->load($id));
 
         $this->loadLayout()
-             ->_setActiveMenu('plumrocket')
+             ->_setActiveMenu('plumrocket');
+        $this->_title($this->__('Plumrocket'))
+             ->_title($this->__('FAQ'))
+             ->_title($this->__('Manage FAQ'));
+        $this->_title($model->getId() ? $model->getTitle() : $this->__('New Faq'))
              ->_addContent($this->getLayout()->createBlock("faq/adminhtml_faq_edit"));
         $this->renderLayout();
     }
