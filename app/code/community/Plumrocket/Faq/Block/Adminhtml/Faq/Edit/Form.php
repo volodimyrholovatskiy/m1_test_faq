@@ -9,6 +9,14 @@ class Plumrocket_Faq_Block_Adminhtml_Faq_Edit_Form extends Mage_Adminhtml_Block_
         $this->setTitle(Mage::helper('faq')->__('Faq information'));
     }
 
+    protected function _prepareLayout()
+    {
+        parent::_prepareLayout();
+        if (Mage::getSingleton('cms/wysiwyg_config')->isEnabled()) {
+            $this->getLayout()->getBlock('head')->setCanLoadTinyMce(true);
+        }
+    }
+
     protected function _prepareForm()
     {
         $model = Mage::registry('faq_block');
@@ -36,10 +44,11 @@ class Plumrocket_Faq_Block_Adminhtml_Faq_Edit_Form extends Mage_Adminhtml_Block_
             'required' => true,
         ));
 
-        $fieldset->addField('content', 'textarea', array(
+        $fieldset->addField('content', 'editor', array(
             'name' => 'content',
             'label' => Mage::helper('faq')->__('Content'),
             'title' => Mage::helper('faq')->__('Content'),
+            'config'    => Mage::getSingleton('cms/wysiwyg_config')->getConfig(),
             'required' => true,
         ));
 
