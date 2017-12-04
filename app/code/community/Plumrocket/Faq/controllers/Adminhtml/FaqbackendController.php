@@ -45,6 +45,31 @@ class Plumrocket_Faq_Adminhtml_FaqbackendController extends Mage_Adminhtml_Contr
         $this->_forward('edit');
     }
 
+    public function saveAction()
+    {
+
+        if ( $this->getRequest()->getPost() ) {
+            try {
+                $postData = $this->getRequest()->getPost();
+                $model = Mage::getModel('faq/block');
+                $model->setId($this->getRequest()->getParam('faq_id'))
+                      ->setTitle($postData['title'])
+                      ->setFaq_status($postData['faq_status'])
+                      ->setContent($postData['content'])
+                      ->save();
+                Mage::getSingleton('adminhtml/session')->addSuccess(Mage::helper('faq')->__('FAQ was successfully saved'));
+                $this->_redirect('*/*/');
+                return;
+            } catch (Exception $e) {
+                Mage::getSingleton('adminhtml/session')->addError($e->getMessage());
+                $this->_redirect('*/*/edit', array('faq_id' => $this->getRequest()->getParam('faq_id')));
+                return;
+            }
+
+        }
+        $this->_redirect('*/*/');
+    }
+
     public function deleteAction()
     {
         if ($id = $this->getRequest()->getParam('faq_id')) {

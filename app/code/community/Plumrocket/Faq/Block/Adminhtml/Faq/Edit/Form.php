@@ -14,7 +14,7 @@ class Plumrocket_Faq_Block_Adminhtml_Faq_Edit_Form extends Mage_Adminhtml_Block_
         $model = Mage::registry('faq_block');
 
         $form = new Varien_Data_Form(
-            array('id' => 'edit_form', 'method' => 'post')
+            array('id' => 'edit_form', 'method' => 'post', 'action' => $this->getUrl('*/*/save', array('faq_id' => $this->getRequest()->getParam('faq_id'))))
         );
 
         $form->setHtmlIdPrefix('faq_');
