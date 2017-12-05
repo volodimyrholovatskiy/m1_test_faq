@@ -76,7 +76,7 @@ class Plumrocket_Faq_Adminhtml_FaqbackendController extends Mage_Adminhtml_Contr
 
     public function deleteAction()
     {
-        if ($id = $this->getRequest()->getParam('faq_id')) {
+        if ( $id = $this->getRequest()->getParam('faq_id') ) {
             try {
                 $model = Mage::getModel('faq/block');
                 $model->load($id);
@@ -97,6 +97,53 @@ class Plumrocket_Faq_Adminhtml_FaqbackendController extends Mage_Adminhtml_Contr
         }
 
         Mage::getSingleton('adminhtml/session')->addError(Mage::helper('faq')->__('Unable to find a faq to delete.'));
+
+        $this->_redirect('*/*/');
+    }
+
+    public function massDeleteAction()
+    {
+        $faqIds = $this->getRequest()->getParam('massaction');
+
+        if ( !is_array($faqIds) ) {
+            Mage::getSingleton('adminhtml/session')->addError($this->__('Please select faq(s).'));
+        } else {
+            try {
+                foreach ($faqIds as $faqId) {
+                    $faq = Mage::getModel('faq/block')->load($faqId);
+                    $faq->delete();
+                }
+                Mage::getSingleton('adminhtml/session')->addSuccess(
+                    $this->__('Total of %d record(s) have been deleted.', count($faqIds))
+                );
+            } catch (Exception $e) {
+                Mage::getSingleton('adminhtml/session')->addError($e->getMessage());
+            }
+        }
+
+        $this->_redirect('*/*/');
+    }
+
+    public function massStatusAction()
+    {
+        $faqIds = $this->getRequest()->getParam('massaction');
+
+        if ( !is_array($faqIds) ) {
+            Mage::getSingleton('adminhtml/session')->addError($this->__('Please select faq(s).'));
+        } else {
+            try {
+                foreach ($faqIds as $faqId) {
+                    $faq = Mage::getModel('faq/block')->load($faqId);
+                    $faq->setFaq_status($this->getRequest()->getParam('faq_status'));
+                    $faq->save();
+                }
+                Mage::getSingleton('adminhtml/session')->addSuccess(
+                    $this->__('Total of %d record(s) have been updated.', count($faqIds))
+                );
+            } catch (Exception $e) {
+                Mage::getSingleton('adminhtml/session')->addError($e->getMessage());
+            }
+        }
 
         $this->_redirect('*/*/');
     }

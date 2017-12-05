@@ -38,6 +38,33 @@ class Plumrocket_Faq_Block_Adminhtml_Faq_Grid extends Mage_Adminhtml_Block_Widge
         return parent::_prepareColumns();
     }
 
+    protected function _prepareMassaction()
+    {
+        $this->setMassactionIdField('faq_id');
+        $this->getMassactionBlock()->setIdFieldName('faq');
+
+        $this->getMassactionBlock()->addItem('delete', array(
+            'label' => Mage::helper('faq')->__('Delete'),
+            'url' => $this->getUrl('*/*/massDelete'),
+            'confirm' => Mage::helper('faq')->__('Are you sure?')
+        ));
+
+        $this->getMassactionBlock()->addItem('status', array(
+            'label' => Mage::helper('faq')->__('Change status'),
+            'url' => $this->getUrl('*/*/massStatus'),
+            'additional' => array(
+                  'faq_status'=> array(
+                        'name' => 'faq_status',
+                        'type' => 'select',
+                        'class' => 'required-entry',
+                        'label' => Mage::helper('faq')->__('Status'),
+                        'values' => Mage::getModel('faq/source_status')->toOptionArray()
+                  )
+            )
+        ));
+        return $this;
+    }
+
     public function getRowUrl($row)
     {
         return $this->getUrl('*/*/edit', array('faq_id' => $row->getId()));
