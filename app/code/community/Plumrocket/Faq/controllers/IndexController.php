@@ -36,7 +36,25 @@ class Plumrocket_Faq_IndexController extends Mage_Core_Controller_Front_Action
         $model = Mage::getModel('faq/block')->load($id);
 
         $this->loadLayout();
+
         $this->getLayout()->getBlock("head")->setTitle($model->getId() ? $model->getTitle() : $this->__('Question not found'));
+
+        $breadcrumbs = $this->getLayout()->getBlock("breadcrumbs");
+        $breadcrumbs->addCrumb("home", array(
+                "label" => $this->__("Home Page"),
+                "title" => $this->__("Home Page"),
+                "link"  => Mage::getBaseUrl()
+        ));
+
+        $breadcrumbs->addCrumb("faq", array(
+                "label" => $this->__("Faq"),
+                "title" => $this->__("Faq"),
+                "link"  => Mage::getUrl('faq')
+		    ));
+        $breadcrumbs->addCrumb($model->getTitle(), array(
+                "label" => $model->getTitle(),
+                "title" => $model->getTitle()
+		    ));
         $this->renderLayout();
     }
 }
