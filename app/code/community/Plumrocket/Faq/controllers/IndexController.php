@@ -36,8 +36,8 @@ class Plumrocket_Faq_IndexController extends Mage_Core_Controller_Front_Action
         $model = Plumrocket_Faq_Block_Faq::getSingleFaq();
 
         $this->loadLayout();
-
-        $this->getLayout()->getBlock("head")->setTitle($model ? $model->getTitle() : $this->__('Question not found'));
+        $title = $model ? $model->getTitle() : $this->__('Question not found');
+        $this->getLayout()->getBlock("head")->setTitle($title);
 
         $breadcrumbs = $this->getLayout()->getBlock("breadcrumbs");
         $breadcrumbs->addCrumb("home", array(
@@ -51,9 +51,9 @@ class Plumrocket_Faq_IndexController extends Mage_Core_Controller_Front_Action
                 "title" => $this->__("Faq"),
                 "link"  => Mage::getUrl('faq')
 		    ));
-        $breadcrumbs->addCrumb($model ? $model->getTitle() : $this->__('Question not found'), array(
-                "label" => $model ? $model->getTitle() : $this->__('Question not found'),
-                "title" => $model ? $model->getTitle() : $this->__('Question not found')
+        $breadcrumbs->addCrumb($title, array(
+                "label" => $title,
+                "title" => $title
 		    ));
         $this->renderLayout();
     }
