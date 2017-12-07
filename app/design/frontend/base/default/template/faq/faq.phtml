@@ -10,7 +10,7 @@ $faqlist = $this->getFaqlist();
   <div class="std">
     <ul class="disc">
       <?php foreach($faqlist as $faq): ?>
-        <li><h4><a href="<?php echo Mage::getUrl('faq/index/view/', array('faq_id' => $faq['faq_id'])); ?>"><?php echo $faq['title']; ?></a></h4></li>
+        <li><h4><a href="<?php echo Mage::getUrl('faq/index/view/', array('faq_id' => $faq['faq_id'])); ?>"><?php echo $this->escapeHtml($faq['title']); ?></a></h4></li>
       <?php endforeach; ?>
     </ul>
   </div>

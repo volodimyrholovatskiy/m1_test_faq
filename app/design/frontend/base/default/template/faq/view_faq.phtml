@@ -5,7 +5,7 @@ $faq = $this->getSingleFaq();
 <div id="single-faq">
   <?php if($faq): ?>
     <div class="page-title">
-      <h1><?php echo $faq->getTitle(); ?></h1>
+      <h1><?php echo $this->escapeHtml($faq->getTitle()); ?></h1>
     </div>
     <div class="std">
       <p><?php echo $faq->getContent(); ?></p>
