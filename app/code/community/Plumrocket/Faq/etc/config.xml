@@ -28,12 +28,21 @@
       <adminhtml>
         <args>
           <modules>
-            <faq before="Mage_Adminhtml">Plumrocket_Faq_Adminhtml</faq>
+            <Plumrocket_Faq before="Mage_Adminhtml">Plumrocket_Faq_Adminhtml</Plumrocket_Faq>
           </modules>
         </args>
       </adminhtml>
     </routers>
   </admin>
+  <adminhtml>
+    <layout>
+      <updates>
+        <Plumrocket_Faq>
+          <file>faq.xml</file>
+        </Plumrocket_Faq>
+      </updates>
+    </layout>
+  </adminhtml>
   <global>
     <models>
       <faq>
@@ -71,7 +80,6 @@
     <faq>
       <general>
         <enabled>1</enabled>
-        <block_count>10</block_count>
       </general>
     </faq>
   </defalut>

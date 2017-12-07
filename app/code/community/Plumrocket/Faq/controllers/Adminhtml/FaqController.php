@@ -1,6 +1,6 @@
 <?php
 
-class Plumrocket_Faq_Adminhtml_FaqbackendController extends Mage_Adminhtml_Controller_Action
+class Plumrocket_Faq_Adminhtml_FaqController extends Mage_Adminhtml_Controller_Action
 {
     protected function _isAllowed()
 	  {
@@ -20,8 +20,7 @@ class Plumrocket_Faq_Adminhtml_FaqbackendController extends Mage_Adminhtml_Contr
         $this->_title($this->__('Plumrocket'))
              ->_title($this->__('FAQ'))
              ->_title($this->__('Manage FAQ'));
-        $this->_initAction()
-						 ->_addContent($this->getLayout()->createBlock("faq/adminhtml_faqbackend"));
+        $this->_initAction();
 	      $this->renderLayout();
     }
 
@@ -45,8 +44,7 @@ class Plumrocket_Faq_Adminhtml_FaqbackendController extends Mage_Adminhtml_Contr
              ->_title($this->__('FAQ'))
              ->_title($this->__('Manage FAQ'));
         $this->_title($model->getId() ? $model->getTitle() : $this->__('New Faq'));
-        $this->_initAction()
-             ->_addContent($this->getLayout()->createBlock("faq/adminhtml_faq_edit"));
+        $this->_initAction();
         $this->renderLayout();
     }
 
