@@ -8,13 +8,18 @@ class Plumrocket_Faq_Adminhtml_FaqbackendController extends Mage_Adminhtml_Contr
 		    return true;
 	  }
 
-	  public function indexAction()
+    protected function _initAction()
     {
         $this->loadLayout()
-             ->_setActiveMenu('plumrocket')
-             ->_title($this->__("Manage FAQ / FAQ / Plumrocket"))
-						 ->_addContent($this->getLayout()->createBlock("faq/adminhtml_faqbackend"));
+             ->_setActiveMenu('plumrocket');
+        return $this;
+    }
 
+	  public function indexAction()
+    {
+        $this->_title($this->__("Manage FAQ / FAQ / Plumrocket"));
+        $this->_initAction()
+						 ->_addContent($this->getLayout()->createBlock("faq/adminhtml_faqbackend"));
 	      $this->renderLayout();
     }
 
@@ -34,12 +39,11 @@ class Plumrocket_Faq_Adminhtml_FaqbackendController extends Mage_Adminhtml_Contr
 
         Mage::register('faq_block',Mage::getModel('faq/block')->load($id));
 
-        $this->loadLayout()
-             ->_setActiveMenu('plumrocket');
         $this->_title($this->__('Plumrocket'))
              ->_title($this->__('FAQ'))
              ->_title($this->__('Manage FAQ'));
-        $this->_title($model->getId() ? $model->getTitle() : $this->__('New Faq'))
+        $this->_title($model->getId() ? $model->getTitle() : $this->__('New Faq'));
+        $this->_initAction()
              ->_addContent($this->getLayout()->createBlock("faq/adminhtml_faq_edit"));
         $this->renderLayout();
     }
