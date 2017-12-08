@@ -22,6 +22,15 @@
         </faq>
       </updates>
     </layout>
+    <translate>
+      <modules>
+        <Plumrocket_Faq>
+          <files>
+            <default>Plumrocket_Faq.csv</default>
+          </files>
+        </Plumrocket_Faq>
+      </modules>
+    </translate>
   </frontend>
   <admin>
     <routers>
@@ -42,6 +51,15 @@
         </Plumrocket_Faq>
       </updates>
     </layout>
+    <translate>
+      <modules>
+        <Plumrocket_Faq>
+          <files>
+            <default>Plumrocket_Faq.csv</default>
+          </files>
+        </Plumrocket_Faq>
+      </modules>
+    </translate>
   </adminhtml>
   <global>
     <models>

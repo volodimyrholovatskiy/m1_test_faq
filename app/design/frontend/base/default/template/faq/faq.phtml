@@ -4,7 +4,7 @@ $faqlist = $this->getFaqlist();
 
 <div id="faq-list">
   <div class="page-title">
-    <h1>Frequently Asked Questions</h1>
+    <h1><?php echo $this->__('Frequently Asked Questions'); ?></h1>
   </div>
   <?php if(!empty($faqlist)): ?>
   <div class="std">
@@ -15,6 +15,6 @@ $faqlist = $this->getFaqlist();
     </ul>
   </div>
   <?php else: ?>
-    <p>There are no  available questions.</p>
+    <p><?php echo $this->__('There are no  available questions.'); ?></p>
   <?php endif; ?>
 </div>

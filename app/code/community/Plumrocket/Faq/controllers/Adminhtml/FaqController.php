@@ -87,7 +87,7 @@ class Plumrocket_Faq_Adminhtml_FaqController extends Mage_Adminhtml_Controller_A
                 $title = $model->getTitle();
                 $model->delete();
 
-                Mage::getSingleton('adminhtml/session')->addSuccess('Faq was deleted successfully!');
+                Mage::getSingleton('adminhtml/session')->addSuccess(Mage::helper('faq')->__('Faq was deleted successfully!'));
 
                 $this->_redirect('*/*/');
                 return;

@@ -11,6 +11,6 @@ $faq = $this->getSingleFaq();
       <p><?php echo $faq->getContent(); ?></p>
     </div>
   <?php else: ?>
-    <p>Sorry... Question not found.</p>
+    <p><?php echo $this->__('Sorry... Question not found.'); ?></p>
   <?php endif; ?>
 </div>

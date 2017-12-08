@@ -6,7 +6,7 @@ class Plumrocket_Faq_Block_Adminhtml_Faq_Edit_Form extends Mage_Adminhtml_Block_
     {
         parent::__construct();
         $this->setId('faq_form');
-        $this->setTitle(Mage::helper('faq')->__('Faq information'));
+        $this->setTitle(Mage::helper('faq')->__('Faq Information'));
     }
 
     protected function _prepareLayout()
