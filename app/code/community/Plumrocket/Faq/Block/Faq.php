@@ -12,13 +12,14 @@ class Plumrocket_Faq_Block_Faq extends Mage_Core_Block_Template
 
     public function getSingleFaq()
     {
-        $id = $this->getRequest()->getParam('faq_id');
-        $collection = Mage::getModel('faq/block')->getCollection()
-                                          ->addFieldToFilter('faq_id', $id)
-                                          ->addFieldToFilter('faq_status', '1');
+        $id = intval($this->getRequest()->getParam('faq_id'));
 
-        $faq = $collection->getFirstItem();
+        if ( $id == 0 ){
+            return false;
+        }
 
-        return $faq->getId() ? $faq : false;
+        $faq = Mage::getModel('faq/block')->load($id);
+
+        return $faq->getId() && $faq->getFaq_status() != 0 ? $faq : false;
     }
 }

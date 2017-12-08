@@ -31,7 +31,6 @@ class Plumrocket_Faq_IndexController extends Mage_Core_Controller_Front_Action
 
     public function viewAction()
     {
-        $id = $this->getRequest()->getParam('faq_id');
 
         $model = Plumrocket_Faq_Block_Faq::getSingleFaq();
 
